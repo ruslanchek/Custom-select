@@ -1,0 +1,70 @@
+.flatSelector-select {
+    display: none;
+}
+
+.flatSelector {
+    font-family: "PT Sans";
+    font-size: 15px;
+    background: #fff;
+    -webkit-box-shadow:  0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+    box-shadow:  0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    height: 27px;
+    line-height: 27px;
+    width: 270px;
+    position: relative;
+    z-index: 3;
+}
+
+.flatSelector div.flatSelector-current {
+    padding: 0 10px;
+    color: #3C4E5A;
+}
+
+.flatSelector div.flatSelector-list {
+    width: 100%;
+    z-index: 2;
+    position: absolute;
+    display: none;
+
+    top: 27px;
+    padding: 2px 0 1px;
+
+    -webkit-box-shadow:  0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+    box-shadow:  0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+
+    -webkit-border-radius: 0px 0px 2px 2px;
+    border-radius: 0px 0px 2px 2px;
+}
+
+.flatSelector div.flatSelector-list ul {
+    max-height: 135px;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    list-style: none;
+}
+
+.flatSelector div.flatSelector-list ul li {
+
+}
+
+.flatSelector div.flatSelector-list ul li a {
+    color: #3C4E5A;
+    text-decoration: none;
+    display: block;
+    height: 27px;
+    line-height: 27px;
+    padding: 0 10px;
+}
+
+.flatSelector div.flatSelector-list ul li a:hover {
+    background: #eee;
+}
+
+.flatSelector div.flatSelector-list ul li a.active {
+    background: #999;
+    color: #fff;
+}
