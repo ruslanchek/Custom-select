@@ -1,8 +1,8 @@
-.flatSelector-select {
+.customSelector-select {
     display: none;
 }
 
-.flatSelector {
+.customSelector {
     font-family: "PT Sans";
     font-size: 15px;
     background: #fff;
@@ -17,12 +17,12 @@
     z-index: 3;
 }
 
-.flatSelector div.flatSelector-current {
+.customSelector div.customSelector-current {
     padding: 0 10px;
     color: #3C4E5A;
 }
 
-.flatSelector div.flatSelector-list {
+.customSelector div.customSelector-list {
     width: 100%;
     z-index: 2;
     position: absolute;
@@ -38,7 +38,7 @@
     border-radius: 0px 0px 2px 2px;
 }
 
-.flatSelector div.flatSelector-list ul {
+.customSelector div.customSelector-list ul {
     max-height: 135px;
     margin: 0;
     padding: 0;
@@ -47,11 +47,11 @@
     list-style: none;
 }
 
-.flatSelector div.flatSelector-list ul li {
+.customSelector div.customSelector-list ul li {
 
 }
 
-.flatSelector div.flatSelector-list ul li a {
+.customSelector div.customSelector-list ul li a {
     color: #3C4E5A;
     text-decoration: none;
     display: block;
@@ -60,11 +60,11 @@
     padding: 0 10px;
 }
 
-.flatSelector div.flatSelector-list ul li a:hover {
+.customSelector div.customSelector-list ul li a:hover {
     background: #eee;
 }
 
-.flatSelector div.flatSelector-list ul li a.active {
+.customSelector div.customSelector-list ul li a.active {
     background: #999;
     color: #fff;
 }

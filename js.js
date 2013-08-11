@@ -2,6 +2,7 @@
     var methods = {
         init: function (options) {
             var settings = $.extend({
+                maxLines: 5,
                 onSelect: function (key, val) {
 
                 }
@@ -9,17 +10,17 @@
 
             return this.each(function () {
                 var $this = $(this),
-                    data = $this.data('flatSelector');
+                    data = $this.data('customSelector');
 
                 if (!data) {
-                    $this.data('flatSelector', {
+                    $this.data('customSelector', {
                         target: $this
                     });
                 }
 
-                $this.addClass('flatSelector-select').after('<div class="flatSelector"></div>');
+                $this.addClass('customSelector-select').after('<div class="customSelector"></div>');
 
-                var $container = $this.next('.flatSelector'),
+                var $container = $this.next('.customSelector'),
                     list = [];
 
                 $this.find('option').each(function () {
@@ -31,8 +32,8 @@
 
                 $this.data('list', list);
 
-                var html = '<div class="flatSelector-current"></div>' +
-                    '<div class="flatSelector-list">' +
+                var html = '<div class="customSelector-current"></div>' +
+                    '<div class="customSelector-list">' +
                     '<ul>';
 
                 for (var i = 0, l = list.length; i < l; i++) {
@@ -49,22 +50,22 @@
 
                 $container.html(html);
 
-                $container.find('.flatSelector-current').html($this.val());
+                $container.find('.customSelector-current').html($this.val());
 
                 $container.find('ul>li>a').off('click').on('click', function (e) {
                     options.onSelect($(this).data('key'), $(this).html());
-                    $container.find('.flatSelector-current').html($(this).html());
-                    $container.find('.flatSelector-list').slideUp(150);
+                    $container.find('.customSelector-current').html($(this).html());
+                    $container.find('.customSelector-list').slideUp(150);
 
                     e.preventDefault();
                 });
 
-                $container.find('.flatSelector-current').on('click', function () {
-                    $container.find('.flatSelector-list').slideDown(150);
+                $container.find('.customSelector-current').on('click', function () {
+                    $container.find('.customSelector-list').slideDown(150);
 
-                    $(document).on('click.flatSelector', function(e){
-                        if($(e.target).closest('.flatSelector').length == 0){
-                            $container.find('.flatSelector-list').slideUp(150);
+                    $(document).on('click.customSelector', function(e){
+                        if($(e.target).closest('.customSelector').length == 0){
+                            $container.find('.customSelector-list').slideUp(150);
                         }
                     });
                 });
@@ -74,24 +75,25 @@
         destroy: function () {
             return this.each(function () {
                 var $this = $(this);
-                $this.removeData().removeClass('flatSelector-select').next('.flatSelector').remove();
+                $this.removeData().removeClass('customSelector-select').next('.customSelector').remove();
             })
         }
     };
 
-    $.fn.flatSelector = function (method) {
+    $.fn.customSelector = function (method) {
         if (methods[method]) {
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
         } else if (typeof method === 'object' || !method) {
             return methods.init.apply(this, arguments);
         } else {
-            $.error('Метод с именем ' + method + ' не существует для jQuery.flatSelector');
+            $.error('Метод с именем ' + method + ' не существует для jQuery.customSelector');
         }
     };
 })(jQuery);
 
 $(function () {
-    $('.s').flatSelector({
+    $('.s').customSelector({
+        maxLines: 3,
         onSelect: function (key, val) {
 
         }
