@@ -50,12 +50,21 @@
 
                 $container.html(html);
 
+                $container.find('.customSelector-list ul').css({
+                    maxHeight: options.maxLines * 27
+                });
+
                 $container.find('.customSelector-current').html($this.val());
 
                 $container.find('ul>li>a').off('click').on('click', function (e) {
+                    $container.find('ul>li>a').removeClass('active');
+                    $(this).addClass('active');
+
                     options.onSelect($(this).data('key'), $(this).html());
                     $container.find('.customSelector-current').html($(this).html());
                     $container.find('.customSelector-list').slideUp(150);
+
+                    $this.val($(this).data('key'));
 
                     e.preventDefault();
                 });
@@ -93,7 +102,7 @@
 
 $(function () {
     $('.s').customSelector({
-        maxLines: 3,
+        maxLines: 5,
         onSelect: function (key, val) {
 
         }
