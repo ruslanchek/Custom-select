@@ -1,4 +1,6 @@
 (function ($) {
+    'use strict';
+
     var methods = {
         init: function (options) {
             var settings = $.extend({
@@ -33,6 +35,7 @@
                 $this.data('list', list);
 
                 var html = '<div class="customSelector-current"></div>' +
+                    '<div class="customSelector-arrow"></div>' +
                     '<div class="customSelector-list">' +
                     '<ul>';
 
@@ -70,7 +73,7 @@
                 });
 
                 $container.find('.customSelector-current').on('click', function () {
-                    $container.find('.customSelector-list').slideDown(150);
+                    $container.find('.customSelector-list').slideToggle(150);
 
                     $(document).on('click.customSelector', function(e){
                         if($(e.target).closest('.customSelector').length == 0){
@@ -101,7 +104,14 @@
 })(jQuery);
 
 $(function () {
-    $('.s').customSelector({
+    $('.s1').customSelector({
+        maxLines: 5,
+        onSelect: function (key, val) {
+
+        }
+    });
+
+    $('.s2').customSelector({
         maxLines: 5,
         onSelect: function (key, val) {
 

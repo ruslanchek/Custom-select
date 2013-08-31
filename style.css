@@ -15,14 +15,44 @@
     width: 270px;
     position: relative;
     z-index: 3;
+    margin: 0 0 1em;
 }
 
-.customSelector div.customSelector-current {
+.customSelector:hover {
+    -webkit-box-shadow:  0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+    box-shadow:  0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.customSelector .customSelector-current {
     padding: 0 10px;
     color: #3C4E5A;
+    cursor: pointer;
 }
 
-.customSelector div.customSelector-list {
+.customSelector:hover .customSelector-current {
+    color: #5c738c;
+}
+
+.customSelector .customSelector-arrow {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 7px 6px 0 6px;
+    border-color: #3C4E5A transparent transparent transparent;
+}
+
+.customSelector:hover .customSelector-arrow {
+    border-style: solid;
+    border-width: 7px 6px 0 6px;
+    border-color: #5c738c transparent transparent transparent;
+}
+
+.customSelector .customSelector-list {
+    background: #fff;
     width: 100%;
     z-index: 2;
     position: absolute;
@@ -38,7 +68,7 @@
     border-radius: 0px 0px 2px 2px;
 }
 
-.customSelector div.customSelector-list ul {
+.customSelector .customSelector-list ul {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -46,11 +76,11 @@
     list-style: none;
 }
 
-.customSelector div.customSelector-list ul li {
+.customSelector .customSelector-list ul li {
 
 }
 
-.customSelector div.customSelector-list ul li a {
+.customSelector .customSelector-list ul li a {
     color: #3C4E5A;
     text-decoration: none;
     display: block;
@@ -59,11 +89,21 @@
     padding: 0 10px;
 }
 
-.customSelector div.customSelector-list ul li a:hover {
+.customSelector .customSelector-list ul li a:hover {
     background: #eee;
 }
 
-.customSelector div.customSelector-list ul li a.active {
-    background: #999;
+.customSelector .customSelector-list ul li a.active {
+    background: #3C4E5A;
     color: #fff;
+}
+
+.customSelector .customSelector-current .arrow {
+    position: absolute;
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 7px 6px 0 6px;
+    border-color: #007bff transparent transparent transparent;
 }
