@@ -57,7 +57,7 @@
                     maxHeight: options.maxLines * 27
                 });
 
-                $container.find('.customSelector-current').html($this.val());
+                $container.find('.customSelector-current').html($this.find('option:selected').html());
 
                 $container.find('ul>li>a').off('click').on('click', function (e) {
                     $container.find('ul>li>a').removeClass('active');
@@ -65,7 +65,9 @@
 
                     options.onSelect($(this).data('key'), $(this).html());
                     $container.find('.customSelector-current').html($(this).html());
+
                     $container.find('.customSelector-list').slideUp(150);
+                    $container.addClass('customSelectorActive');
 
                     $this.val($(this).data('key'));
 
@@ -73,11 +75,18 @@
                 });
 
                 $container.find('.customSelector-current').on('click', function () {
-                    $container.find('.customSelector-list').slideToggle(150);
+                    if($container.find('.customSelector-list').is(':visible')){
+                        $container.find('.customSelector-list').slideUp(150);
+                        $container.removeClass('customSelectorActive');
+                    }else{
+                        $container.find('.customSelector-list').slideDown(150);
+                        $container.addClass('customSelectorActive');
+                    }
 
                     $(document).on('click.customSelector', function(e){
                         if($(e.target).closest('.customSelector').length == 0){
                             $container.find('.customSelector-list').slideUp(150);
+                            $container.removeClass('customSelectorActive');
                         }
                     });
                 });
@@ -102,19 +111,3 @@
         }
     };
 })(jQuery);
-
-$(function () {
-    $('.s1').customSelector({
-        maxLines: 5,
-        onSelect: function (key, val) {
-
-        }
-    });
-
-    $('.s2').customSelector({
-        maxLines: 5,
-        onSelect: function (key, val) {
-
-        }
-    });
-});

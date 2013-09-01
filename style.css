@@ -12,25 +12,27 @@
     border-radius: 2px;
     height: 27px;
     line-height: 27px;
-    width: 270px;
+    width: 220px;
     position: relative;
-    z-index: 3;
     margin: 0 0 1em;
 }
 
-.customSelector:hover {
-    -webkit-box-shadow:  0px 1px 2px 0px rgba(0, 0, 0, 0.3);
-    box-shadow:  0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+.customSelector:hover .customSelector-current,
+.customSelectorActive .customSelector-current {
+    background: #eee;
 }
 
 .customSelector .customSelector-current {
     padding: 0 10px;
     color: #3C4E5A;
     cursor: pointer;
+
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
 }
 
 .customSelector:hover .customSelector-current {
-    color: #5c738c;
+    color: #5c738c !important;
 }
 
 .customSelector .customSelector-arrow {
@@ -50,16 +52,16 @@
     border-width: 7px 6px 0 6px;
     border-color: #5c738c transparent transparent transparent;
 }
-
 .customSelector .customSelector-list {
+
     background: #fff;
     width: 100%;
-    z-index: 2;
+    z-index: 1112;
     position: absolute;
     display: none;
 
-    top: 27px;
-    padding: 2px 0 1px;
+    top: 26px;
+    padding: 0;
 
     -webkit-box-shadow:  0px 1px 2px 0px rgba(0, 0, 0, 0.3);
     box-shadow:  0px 1px 2px 0px rgba(0, 0, 0, 0.3);
@@ -76,8 +78,10 @@
     list-style: none;
 }
 
-.customSelector .customSelector-list ul li {
-
+.customSelector .customSelector-list ul li:last-child,
+.customSelector .customSelector-list ul li:last-child a {
+    -webkit-border-radius: 0px 0px 2px 2px;
+            border-radius: 0px 0px 2px 2px;
 }
 
 .customSelector .customSelector-list ul li a {
